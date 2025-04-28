@@ -14,6 +14,64 @@ The benchmarks measure various map operations using text from "King Lear" as inp
 
 Each benchmark is run in separate directories with different Go versions specified in their respective `go.mod` files.
 
+## How to Run the Benchmarks
+
+To run the benchmarks for a specific operation and see memory usage:
+
+```bash
+# For Go 1.23 (bucket map)
+cd bucketsmap
+go test -bench=BenchmarkMap<Operation> -benchmem > results/<operation>/mem.txt
+
+# For Go 1.24 (Swiss map)
+cd swissmap
+go test -bench=BenchmarkMap<Operation> -benchmem > results/<operation>/mem.txt
+```
+
+Replace `<Operation>` with one of: `Insert`, `Lookup`, `Update`, or `Delete`.
+
+To compare results using benchstat:
+
+```bash
+# Install benchstat if you don't have it
+go install golang.org/x/perf/cmd/benchstat@latest
+
+# Compare results
+benchstat bucketsmap/results/<operation>/mem.txt swissmap/results/<operation>/mem.txt
+```
+
+For more statistically significant results, use the `-count` flag:
+
+```bash
+go test -bench=BenchmarkMap<Operation> -benchmem -count=6 > results/<operation>/mem_stat.txt
+```
+
+To generate CPU profiles:
+
+```bash
+# For Go 1.23 (bucket map)
+cd bucketsmap
+go test -bench=BenchmarkMap<Operation> -cpuprofile=results/<operation>/cpu.prof
+
+# For Go 1.24 (Swiss map)
+cd swissmap
+go test -bench=BenchmarkMap<Operation> -cpuprofile=results/<operation>/cpu.prof
+```
+
+To analyze CPU profiles:
+
+```bash
+go tool pprof -top ./bucketsmap/results/<operation>/cpu.prof > ./bucketsmap/results/<operation>/cpu.txt
+go tool pprof -top ./swissmap/results/<operation>/cpu.prof > ./swissmap/results/<operation>/cpu.txt
+```
+
+For visual analysis (requires Graphviz):
+
+```bash
+go tool pprof -http=:8080 ./bucketsmap/results/<operation>/cpu.prof
+go tool pprof -http=:8080 ./swissmap/results/<operation>/cpu.prof
+```
+
 ## CPU Usage Comparison Results
 
 Based on CPU profiling, here's how the Swiss map implementation in Go 1.24 compares to the bucket map in Go 1.23:
@@ -122,61 +180,3 @@ Based on benchstat comparisons between Go 1.23's bucket map and Go 1.24's Swiss 
 3. For update operations, the Swiss map is slightly slower (6.0%) with no difference in memory usage.
 
 4. The most significant memory improvement is in the number of heap allocations for insertions, which could lead to reduced garbage collection pressure.
-
-## How to Run the Benchmarks
-
-To run the benchmarks for a specific operation and see memory usage:
-
-```bash
-# For Go 1.23 (bucket map)
-cd bucketsmap
-go test -bench=BenchmarkMap<Operation> -benchmem > results/<operation>/mem.txt
-
-# For Go 1.24 (Swiss map)
-cd swissmap
-go test -bench=BenchmarkMap<Operation> -benchmem > results/<operation>/mem.txt
-```
-
-Replace `<Operation>` with one of: `Insert`, `Lookup`, `Update`, or `Delete`.
-
-To compare results using benchstat:
-
-```bash
-# Install benchstat if you don't have it
-go install golang.org/x/perf/cmd/benchstat@latest
-
-# Compare results
-benchstat bucketsmap/results/<operation>/mem.txt swissmap/results/<operation>/mem.txt
-```
-
-For more statistically significant results, use the `-count` flag:
-
-```bash
-go test -bench=BenchmarkMap<Operation> -benchmem -count=6 > results/<operation>/mem_stat.txt
-```
-
-To generate CPU profiles:
-
-```bash
-# For Go 1.23 (bucket map)
-cd bucketsmap
-go test -bench=BenchmarkMap<Operation> -cpuprofile=results/<operation>/cpu.prof
-
-# For Go 1.24 (Swiss map)
-cd swissmap
-go test -bench=BenchmarkMap<Operation> -cpuprofile=results/<operation>/cpu.prof
-```
-
-To analyze CPU profiles:
-
-```bash
-go tool pprof -top ./bucketsmap/results/<operation>/cpu.prof > ./bucketsmap/results/<operation>/cpu.txt
-go tool pprof -top ./swissmap/results/<operation>/cpu.prof > ./swissmap/results/<operation>/cpu.txt
-```
-
-For visual analysis (requires Graphviz):
-
-```bash
-go tool pprof -http=:8080 ./bucketsmap/results/<operation>/cpu.prof
-go tool pprof -http=:8080 ./swissmap/results/<operation>/cpu.prof
-```
