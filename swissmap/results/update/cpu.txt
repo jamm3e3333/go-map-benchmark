@@ -1,0 +1,27 @@
+File: benchmap.test
+Type: cpu
+Time: 2025-04-28 20:26:39 CEST
+Duration: 2.42s, Total samples = 2.12s (87.46%)
+Showing nodes accounting for 2.09s, 98.58% of 2.12s total
+Dropped 16 nodes (cum <= 0.01s)
+      flat  flat%   sum%        cum   cum%
+     1.06s 50.00% 50.00%      1.06s 50.00%  aeshashbody
+     0.45s 21.23% 71.23%      2.03s 95.75%  runtime.mapassign_faststr
+     0.38s 17.92% 89.15%      0.38s 17.92%  runtime.memequal
+     0.05s  2.36% 91.51%      2.09s 98.58%  github.com/jamm3e3333/benchmap.BenchmarkMapUpdate
+     0.05s  2.36% 93.87%      0.05s  2.36%  internal/runtime/maps.(*Map).directoryIndex (inline)
+     0.04s  1.89% 95.75%      0.04s  1.89%  internal/runtime/maps.(*groupReference).elem (inline)
+     0.02s  0.94% 96.70%      0.02s  0.94%  internal/runtime/maps.(*Map).directoryAt (inline)
+     0.02s  0.94% 97.64%      0.02s  0.94%  internal/runtime/maps.ctrlGroupMatchH2 (inline)
+     0.02s  0.94% 98.58%      0.02s  0.94%  runtime.pthread_cond_signal
+         0     0% 98.58%      0.02s  0.94%  internal/runtime/maps.ctrlGroup.matchH2 (inline)
+         0     0% 98.58%      0.02s  0.94%  runtime.gopreempt_m (inline)
+         0     0% 98.58%      0.02s  0.94%  runtime.goschedImpl
+         0     0% 98.58%      0.02s  0.94%  runtime.morestack
+         0     0% 98.58%      0.02s  0.94%  runtime.newstack
+         0     0% 98.58%      0.02s  0.94%  runtime.notewakeup
+         0     0% 98.58%      0.02s  0.94%  runtime.semawakeup
+         0     0% 98.58%      0.02s  0.94%  runtime.startm
+         0     0% 98.58%      0.02s  0.94%  runtime.wakep
+         0     0% 98.58%      2.09s 98.58%  testing.(*B).launch
+         0     0% 98.58%      2.09s 98.58%  testing.(*B).runN

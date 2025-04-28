@@ -1,0 +1,85 @@
+File: benchmap.test
+Type: cpu
+Time: Apr 28, 2025 at 6:39pm (CEST)
+Duration: 2.42s, Total samples = 2.27s (93.79%)
+Showing nodes accounting for 2.17s, 95.59% of 2.27s total
+Dropped 41 nodes (cum <= 0.01s)
+      flat  flat%   sum%        cum   cum%
+     1.11s 48.90% 48.90%      1.11s 48.90%  runtime.kevent
+     0.22s  9.69% 58.59%      0.86s 37.89%  runtime.mapassign_faststr
+     0.21s  9.25% 67.84%      0.21s  9.25%  aeshashbody
+     0.07s  3.08% 70.93%      0.07s  3.08%  runtime.pthread_cond_signal
+     0.06s  2.64% 73.57%      0.06s  2.64%  runtime.memequal
+     0.05s  2.20% 75.77%      0.05s  2.20%  runtime.madvise
+     0.05s  2.20% 77.97%      0.05s  2.20%  runtime.pthread_kill
+     0.04s  1.76% 79.74%      0.04s  1.76%  internal/runtime/maps.h2 (inline)
+     0.04s  1.76% 81.50%      0.04s  1.76%  runtime.memmove
+     0.04s  1.76% 83.26%      0.04s  1.76%  runtime.usleep
+     0.03s  1.32% 84.58%      0.03s  1.32%  internal/runtime/maps.(*Map).directoryAt (inline)
+     0.03s  1.32% 85.90%      0.13s  5.73%  internal/runtime/maps.(*table).uncheckedPutSlot
+     0.03s  1.32% 87.22%      0.07s  3.08%  runtime.typedmemmove
+     0.02s  0.88% 88.11%      0.02s  0.88%  internal/abi.(*SwissMapType).IndirectKey (inline)
+     0.02s  0.88% 88.99%      0.02s  0.88%  internal/runtime/atomic.(*UnsafePointer).Load (inline)
+     0.02s  0.88% 89.87%      0.02s  0.88%  internal/runtime/maps.(*ctrlGroup).setEmpty (inline)
+     0.02s  0.88% 90.75%      0.02s  0.88%  internal/runtime/maps.bitset.removeFirst (inline)
+     0.02s  0.88% 91.63%      0.02s  0.88%  internal/runtime/maps.bitsetFirst (inline)
+     0.02s  0.88% 92.51%      0.02s  0.88%  runtime.greyobject
+     0.02s  0.88% 93.39%      0.02s  0.88%  runtime.pthread_cond_timedwait_relative_np
+     0.01s  0.44% 93.83%      0.88s 38.77%  github.com/jamm3e3333/benchmap.BenchmarkMapInsert
+     0.01s  0.44% 94.27%      0.08s  3.52%  internal/runtime/maps.typedmemmove
+     0.01s  0.44% 94.71%      0.05s  2.20%  runtime.mallocgcSmallScanHeader
+     0.01s  0.44% 95.15%      0.03s  1.32%  runtime.scanobject
+     0.01s  0.44% 95.59%      0.03s  1.32%  runtime.stkbucket
+         0     0% 95.59%      0.09s  3.96%  internal/runtime/maps.(*table).grow
+         0     0% 95.59%      0.24s 10.57%  internal/runtime/maps.(*table).rehash
+         0     0% 95.59%      0.07s  3.08%  internal/runtime/maps.(*table).reset
+         0     0% 95.59%      0.15s  6.61%  internal/runtime/maps.(*table).split
+         0     0% 95.59%      0.02s  0.88%  internal/runtime/maps.bitset.first (inline)
+         0     0% 95.59%      0.05s  2.20%  internal/runtime/maps.newGroups (inline)
+         0     0% 95.59%      0.08s  3.52%  internal/runtime/maps.newTable
+         0     0% 95.59%      0.05s  2.20%  internal/runtime/maps.newarray
+         0     0% 95.59%      0.05s  2.20%  runtime.(*mheap).alloc.func1
+         0     0% 95.59%      0.05s  2.20%  runtime.(*mheap).allocSpan
+         0     0% 95.59%      0.02s  0.88%  runtime.findRunnable
+         0     0% 95.59%      0.06s  2.64%  runtime.forEachPInternal
+         0     0% 95.59%      0.04s  1.76%  runtime.gcBgMarkWorker
+         0     0% 95.59%      0.05s  2.20%  runtime.gcBgMarkWorker.func2
+         0     0% 95.59%      0.05s  2.20%  runtime.gcDrain
+         0     0% 95.59%      0.05s  2.20%  runtime.gcDrainMarkWorkerDedicated (inline)
+         0     0% 95.59%      0.05s  2.20%  runtime.gcMarkDone.forEachP.func5
+         0     0% 95.59%      1.11s 48.90%  runtime.gcStart.func4
+         0     0% 95.59%      0.10s  4.41%  runtime.gopreempt_m (inline)
+         0     0% 95.59%      0.10s  4.41%  runtime.goschedImpl
+         0     0% 95.59%      0.04s  1.76%  runtime.lock (inline)
+         0     0% 95.59%      0.04s  1.76%  runtime.lock2
+         0     0% 95.59%      0.04s  1.76%  runtime.lockWithRank (inline)
+         0     0% 95.59%      0.03s  1.32%  runtime.mProf_Malloc
+         0     0% 95.59%      0.06s  2.64%  runtime.mallocgc
+         0     0% 95.59%      0.02s  0.88%  runtime.markroot
+         0     0% 95.59%      0.02s  0.88%  runtime.markroot.func1
+         0     0% 95.59%      0.02s  0.88%  runtime.mcall
+         0     0% 95.59%      0.10s  4.41%  runtime.morestack
+         0     0% 95.59%      1.11s 48.90%  runtime.netpoll
+         0     0% 95.59%      0.05s  2.20%  runtime.newarray
+         0     0% 95.59%      0.10s  4.41%  runtime.newstack
+         0     0% 95.59%      0.02s  0.88%  runtime.notetsleep
+         0     0% 95.59%      0.02s  0.88%  runtime.notetsleep_internal
+         0     0% 95.59%      0.07s  3.08%  runtime.notewakeup
+         0     0% 95.59%      0.04s  1.76%  runtime.osyield (inline)
+         0     0% 95.59%      0.02s  0.88%  runtime.park_m
+         0     0% 95.59%      0.05s  2.20%  runtime.preemptM
+         0     0% 95.59%      0.04s  1.76%  runtime.preemptall
+         0     0% 95.59%      0.04s  1.76%  runtime.preemptone
+         0     0% 95.59%      0.03s  1.32%  runtime.profilealloc
+         0     0% 95.59%      0.03s  1.32%  runtime.schedule
+         0     0% 95.59%      0.03s  1.32%  runtime.semasleep
+         0     0% 95.59%      0.07s  3.08%  runtime.semawakeup
+         0     0% 95.59%      0.05s  2.20%  runtime.signalM (inline)
+         0     0% 95.59%      1.11s 48.90%  runtime.startTheWorldWithSema
+         0     0% 95.59%      0.06s  2.64%  runtime.startm
+         0     0% 95.59%      0.05s  2.20%  runtime.sysUsed (inline)
+         0     0% 95.59%      0.05s  2.20%  runtime.sysUsedOS (inline)
+         0     0% 95.59%      1.29s 56.83%  runtime.systemstack
+         0     0% 95.59%      0.06s  2.64%  runtime.wakep
+         0     0% 95.59%      0.88s 38.77%  testing.(*B).launch
+         0     0% 95.59%      0.88s 38.77%  testing.(*B).runN

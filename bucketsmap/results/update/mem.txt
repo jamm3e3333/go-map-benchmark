@@ -1,0 +1,7 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/jamm3e3333/benchmap
+cpu: Apple M3 Pro
+BenchmarkMapUpdate-12    	    2312	    503994 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/jamm3e3333/benchmap	2.394s

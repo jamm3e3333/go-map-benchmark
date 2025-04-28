@@ -1,0 +1,20 @@
+File: benchmap.test
+Type: cpu
+Time: 2025-04-28 20:49:40 CEST
+Duration: 1.30s, Total samples = 1.09s (83.53%)
+Showing nodes accounting for 1.09s, 100% of 1.09s total
+      flat  flat%   sum%        cum   cum%
+     0.55s 50.46% 50.46%      0.55s 50.46%  aeshashbody
+     0.24s 22.02% 72.48%      0.24s 22.02%  runtime.memequal
+     0.21s 19.27% 91.74%      1.03s 94.50%  runtime.mapaccess1_faststr
+     0.04s  3.67% 95.41%      1.07s 98.17%  github.com/jamm3e3333/benchmap.BenchmarkMapLookup
+     0.02s  1.83% 97.25%      0.02s  1.83%  internal/runtime/maps.(*Map).directoryIndex (inline)
+     0.02s  1.83% 99.08%      0.02s  1.83%  runtime.kevent
+     0.01s  0.92%   100%      0.01s  0.92%  internal/runtime/maps.(*groupsReference).group (inline)
+         0     0%   100%      0.01s  0.92%  runtime.gcMarkTermination.func3
+         0     0%   100%      0.02s  1.83%  runtime.netpoll
+         0     0%   100%      0.01s  0.92%  runtime.startTheWorld.func1
+         0     0%   100%      0.02s  1.83%  runtime.startTheWorldWithSema
+         0     0%   100%      0.02s  1.83%  runtime.systemstack
+         0     0%   100%      1.07s 98.17%  testing.(*B).launch
+         0     0%   100%      1.07s 98.17%  testing.(*B).runN

@@ -1,0 +1,38 @@
+File: benchmap.test
+Type: cpu
+Time: Apr 28, 2025 at 8:55pm (CEST)
+Duration: 1.72s, Total samples = 1.52s (88.51%)
+Showing nodes accounting for 1.52s, 100% of 1.52s total
+      flat  flat%   sum%        cum   cum%
+     0.93s 61.18% 61.18%      0.93s 61.18%  runtime.mapdelete_faststr
+     0.56s 36.84% 98.03%      1.50s 98.68%  github.com/jamm3e3333/benchmap.BenchmarkMapDelete
+     0.01s  0.66% 98.68%      0.01s  0.66%  runtime.pthread_cond_signal
+     0.01s  0.66% 99.34%      0.01s  0.66%  runtime.pthread_cond_wait
+     0.01s  0.66%   100%      0.01s  0.66%  syscall.syscall
+         0     0%   100%      0.01s  0.66%  bufio.(*Reader).ReadRune
+         0     0%   100%      0.01s  0.66%  bufio.(*Reader).fill
+         0     0%   100%      0.01s  0.66%  github.com/jamm3e3333/benchmap.loadKingLearWords
+         0     0%   100%      0.01s  0.66%  internal/poll.(*FD).Read
+         0     0%   100%      0.01s  0.66%  internal/poll.ignoringEINTRIO (inline)
+         0     0%   100%      0.01s  0.66%  os.(*File).Read
+         0     0%   100%      0.01s  0.66%  os.(*File).read (inline)
+         0     0%   100%      0.01s  0.66%  runtime.findRunnable
+         0     0%   100%      0.01s  0.66%  runtime.gopreempt_m (inline)
+         0     0%   100%      0.01s  0.66%  runtime.goschedImpl
+         0     0%   100%      0.01s  0.66%  runtime.mPark (inline)
+         0     0%   100%      0.01s  0.66%  runtime.mcall
+         0     0%   100%      0.01s  0.66%  runtime.morestack
+         0     0%   100%      0.01s  0.66%  runtime.newstack
+         0     0%   100%      0.01s  0.66%  runtime.notesleep
+         0     0%   100%      0.01s  0.66%  runtime.notewakeup
+         0     0%   100%      0.01s  0.66%  runtime.park_m
+         0     0%   100%      0.01s  0.66%  runtime.schedule
+         0     0%   100%      0.01s  0.66%  runtime.semasleep
+         0     0%   100%      0.01s  0.66%  runtime.semawakeup
+         0     0%   100%      0.01s  0.66%  runtime.startm
+         0     0%   100%      0.01s  0.66%  runtime.stopm
+         0     0%   100%      0.01s  0.66%  runtime.wakep
+         0     0%   100%      0.01s  0.66%  syscall.Read (inline)
+         0     0%   100%      0.01s  0.66%  syscall.read
+         0     0%   100%      1.50s 98.68%  testing.(*B).launch
+         0     0%   100%      1.50s 98.68%  testing.(*B).runN

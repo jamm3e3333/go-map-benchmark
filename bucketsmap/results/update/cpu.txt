@@ -1,0 +1,34 @@
+File: benchmap.test
+Type: cpu
+Time: Apr 28, 2025 at 8:34pm (CEST)
+Duration: 1.21s, Total samples = 1000ms (82.53%)
+Showing nodes accounting for 1000ms, 100% of 1000ms total
+      flat  flat%   sum%        cum   cum%
+     370ms 37.00% 37.00%      970ms 97.00%  runtime.mapassign_faststr
+     320ms 32.00% 69.00%      320ms 32.00%  aeshashbody
+     180ms 18.00% 87.00%      180ms 18.00%  runtime.isEmpty (inline)
+      60ms  6.00% 93.00%       60ms  6.00%  memeqbody
+      40ms  4.00% 97.00%       40ms  4.00%  runtime.(*hmap).growing (inline)
+      10ms  1.00% 98.00%      990ms 99.00%  github.com/jamm3e3333/benchmap.BenchmarkMapUpdate
+      10ms  1.00% 99.00%       10ms  1.00%  runtime.pthread_kill
+      10ms  1.00%   100%       10ms  1.00%  syscall.syscall
+         0     0%   100%       10ms  1.00%  bufio.(*Reader).ReadRune
+         0     0%   100%       10ms  1.00%  bufio.(*Reader).fill
+         0     0%   100%       10ms  1.00%  github.com/jamm3e3333/benchmap.loadKingLearWords
+         0     0%   100%       10ms  1.00%  internal/poll.(*FD).Read
+         0     0%   100%       10ms  1.00%  internal/poll.ignoringEINTRIO (inline)
+         0     0%   100%       10ms  1.00%  os.(*File).Read
+         0     0%   100%       10ms  1.00%  os.(*File).read (inline)
+         0     0%   100%       10ms  1.00%  runtime.(*gcControllerState).enlistWorker
+         0     0%   100%       10ms  1.00%  runtime.(*gcWork).balance
+         0     0%   100%       10ms  1.00%  runtime.gcBgMarkWorker.func2
+         0     0%   100%       10ms  1.00%  runtime.gcDrain
+         0     0%   100%       10ms  1.00%  runtime.gcDrainMarkWorkerDedicated (inline)
+         0     0%   100%       10ms  1.00%  runtime.preemptM
+         0     0%   100%       10ms  1.00%  runtime.preemptone
+         0     0%   100%       10ms  1.00%  runtime.signalM (inline)
+         0     0%   100%       10ms  1.00%  runtime.systemstack
+         0     0%   100%       10ms  1.00%  syscall.Read (inline)
+         0     0%   100%       10ms  1.00%  syscall.read
+         0     0%   100%      990ms 99.00%  testing.(*B).launch
+         0     0%   100%      990ms 99.00%  testing.(*B).runN
