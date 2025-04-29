@@ -65,6 +65,16 @@ go tool pprof -top ./bucketsmap/results/<operation>/cpu.prof > ./bucketsmap/resu
 go tool pprof -top ./swissmap/results/<operation>/cpu.prof > ./swissmap/results/<operation>/cpu.txt
 ```
 
+The `go tool pprof -top` command analyzes a CPU profile and outputs a text summary of the top functions by CPU usage. The output contains:
+
+- `flat`: CPU time spent directly in the function
+- `flat%`: Percentage of total CPU time spent directly in the function
+- `sum%`: Running sum of flat percentages
+- `cum`: Cumulative CPU time spent in the function and all functions it calls
+- `cum%`: Percentage of total CPU time spent in the function and all functions it calls
+
+This command is essential for identifying which functions consume the most CPU time and pinpointing performance bottlenecks in the code.
+
 For visual analysis (requires Graphviz):
 
 ```bash
@@ -75,6 +85,15 @@ go tool pprof -http=:8080 ./swissmap/results/<operation>/cpu.prof
 ## CPU Usage Comparison Results
 
 Based on CPU profiling, here's how the Swiss map implementation in Go 1.24 compares to the bucket map in Go 1.23:
+
+### Total CPU Usage (All Operations)
+
+| Operation | Bucket Map (Go 1.23) | Swiss Map (Go 1.24) | Difference |
+|--------|----------------------|---------------------|------------|
+| Total CPU sampling time (Insert) | 2.37s | 2.27s | Swiss map used ~4.2% less CPU overall |
+| Total CPU sampling time (Update) | 2.07s | 2.12s | Swiss map used ~2.4% more CPU overall |
+| Total CPU sampling time (Lookup) | 1.04s | 1.09s | Swiss map used ~4.8% more CPU overall |
+| Total CPU sampling time (Delete) | 1.52s | 1.46s | Swiss map used ~3.9% less CPU overall |
 
 ### Map Insertion Operation
 
@@ -135,6 +154,23 @@ Based on CPU profiling, here's how the Swiss map implementation in Go 1.24 compa
 ## Memory Usage Comparison Results
 
 Based on benchstat comparisons between Go 1.23's bucket map and Go 1.24's Swiss map implementations:
+
+### Time Per Operation
+
+| Time per operation | Bucket Map (Go 1.23) | Swiss Map (Go 1.24) | Difference |
+|--------|----------------------|---------------------|------------|
+| Insert | 785.3µs | 654.4µs | Swiss map is ~16.7% faster |
+| Lookup | 446.0µs | 411.5µs | Swiss map is ~7.7% faster |
+| Update | 504.0µs | 534.4µs | Swiss map is ~6.0% slower |
+| Delete | 40.03µs | 34.66µs | Swiss map is ~13.4% faster |
+
+
+### Allocs Per Operation (Insert)
+
+| Metric | Bucket Map (Go 1.23) | Swiss Map (Go 1.24) | Difference |
+|--------|----------------------|---------------------|------------|
+| Memory allocated per op | 476.0 KiB | 426.2 KiB | Swiss map uses ~10.5% less memory |
+| Heap allocations per op | 143 | 46 | Swiss map makes ~67.8% fewer allocations |
 
 ### Map Insertion Operation
 

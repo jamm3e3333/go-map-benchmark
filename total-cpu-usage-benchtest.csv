@@ -1,0 +1,5 @@
+Operation,Bucket Map (Go 1.23),Swiss Map (Go 1.24),Difference
+Total CPU sampling time (Insert),2.37s,2.27s,Swiss map used ~4.2% less CPU overall
+Total CPU sampling time (Update),2.07s,2.12s,Swiss map used ~2.4% more CPU overall
+Total CPU sampling time (Lookup),1.04s,1.09s,Swiss map used ~4.8% more CPU overall
+Total CPU sampling time (Delete),1.52s,1.46s,Swiss map used ~3.9% less CPU overall

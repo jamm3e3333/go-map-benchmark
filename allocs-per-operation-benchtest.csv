@@ -1,0 +1,3 @@
+Metric,Bucket Map (Go 1.23),Swiss Map (Go 1.24),Difference
+Memory allocated per op,476.0 KiB,426.2 KiB,Swiss map uses ~10.5% less memory
+Heap allocations per op,143,46,Swiss map makes ~67.8% fewer allocations

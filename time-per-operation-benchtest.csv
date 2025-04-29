@@ -1,0 +1,5 @@
+Time per operation,Bucket Map (Go 1.23),Swiss Map (Go 1.24),Difference
+Insert,785.3µs,654.4µs,Swiss map is ~16.7% faster
+Lookup,446.0µs,411.5µs,Swiss map is ~7.7% faster
+Update,504.0µs,534.4µs,Swiss map is ~6.0% slower
+Delete,40.03µs,34.66µs,Swiss map is ~13.4% faster
