@@ -1,0 +1,7 @@
+goos: darwin
+goarch: amd64
+pkg: github.com/jamm3e3333/benchmap
+cpu: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz
+BenchmarkMapDelete-8   	   15030	     79323 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/jamm3e3333/benchmap	2.497s
